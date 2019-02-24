@@ -36,7 +36,8 @@ ReactDOM.render(
       <div>
         <Switch>
           <Route path="/" exact component={CarsIndex}/>
-          <Route path="cars/:id" component={CarsShow}/>
+          <Route path="/cars/new" exact component={CarsNew}/>
+          <Route path="/cars/:id" component={CarsShow}/>
         </Switch>
       </div>
     </Router>
