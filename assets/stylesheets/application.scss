@@ -2,3 +2,19 @@
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+.car {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0;
+  align-items: center;
+  text-align: center;
+  h3 {
+    margin: 0;
+    flex: 33% 0 0;
+  }
+  p {
+    margin: 0;
+    flex: 33% 0 0;
+  }
+}
