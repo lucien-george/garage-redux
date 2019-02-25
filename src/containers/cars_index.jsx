@@ -26,6 +26,7 @@ class CarsIndex extends Component {
   render() {
     return(
       <div className="container">
+        <Link to='/cars/new'>Add a car to your garage</Link>
         {this.renderCars()}
       </div>
     );
