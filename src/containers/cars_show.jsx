@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchCar } from '../actions';
+import { deleteCar } from '../actions';
 
 class CarsShow extends Component {
   componentWillMount() {
@@ -10,13 +11,21 @@ class CarsShow extends Component {
       this.props.fetchCar(this.props.match.params.id)
     }
   }
+
+  handleSubmit = () => {
+    this.props.deleteCar(this.props.car.id, (car) => {
+      this.props.history.push('/');
+      return car;
+    });
+  }
+
   render() {
     if (!this.props.car) {
       return <p>Loading...</p>;
     }
     return (
       <div>
-        <p>test</p>
+        <button onClick={this.handleSubmit}>Delete this car</button>
         <div className="car-item">
           <h3>{this.props.car.brand}</h3>
           <p>{this.props.car.model}</p>
@@ -38,7 +47,7 @@ function mapStateToProps(state, props) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchCar }, dispatch);
+  return bindActionCreators({ fetchCar, deleteCar }, dispatch);
 }
 
 

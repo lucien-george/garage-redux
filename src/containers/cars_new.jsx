@@ -8,7 +8,7 @@ class CarsNew extends Component {
   onSubmit = (values) => {
     this.props.createCar(this.props.garage, values, (car) => {
       this.props.history.push('/'); // Navigate after submit (redirection)
-        return car;
+      return car;
     });
   }
 
