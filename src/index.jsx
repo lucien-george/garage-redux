@@ -4,12 +4,13 @@ import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import reduxPromise from 'redux-promise';
 import logger from 'redux-logger';
-// import { reducer as formReducer } from 'redux-form';
+import { reducer as formReducer } from 'redux-form';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { createHistory as history } from 'history';
 import carsReducer from './reducers/cars_reducer';
 import CarsIndex from './containers/cars_index';
 import CarsShow from './containers/cars_show';
+import CarsNew from './containers/cars_new';
 import '../assets/stylesheets/application.scss';
 
 const garageName = `garage${Math.floor(10 + (Math.random() * 90))}`;
@@ -21,7 +22,8 @@ const initialState = {
 
 const reducers = combineReducers({
   garage: (state = null, action) => state,
-  cars: carsReducer
+  cars: carsReducer,
+  form: formReducer
 });
 
 
